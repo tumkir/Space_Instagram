@@ -1,6 +1,7 @@
 images/
 *.txt
 *.checkpoint
+!requirements.txt
 
 
 # Byte-compiled / optimized / DLL files
