@@ -1,4 +1,5 @@
 images/
+.vscode/
 *.txt
 *.checkpoint
 !requirements.txt

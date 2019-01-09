@@ -1,3 +1,4 @@
+from os.path import splitext
 import requests
 
 
@@ -8,7 +9,7 @@ def download_image(url, filename):
 
 
 def get_file_extension(link):
-    file_extension = link.split(".")[-1]
+    file_extension = splitext(link)[1]
     return file_extension
 
 
@@ -17,7 +18,7 @@ def fetch_hubble_image_by_id(id):
     hubble_response = requests.get(f"{hubble_api_link}{id}")
     hubble_json = hubble_response.json()
     hubble_image_link = hubble_json["image_files"][-1]["file_url"]
-    download_image(hubble_image_link, f"{id}.{get_file_extension(hubble_image_link)}")
+    download_image(hubble_image_link, f"{id}{get_file_extension(hubble_image_link)}")
 
 
 def fetch_hubble_image_by_collection(collection_name):
